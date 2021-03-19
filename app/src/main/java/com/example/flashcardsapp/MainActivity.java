@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,8 +41,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, EditActivity.class);
-                MainActivity.this.startActivity(i);
+                MainActivity.this.startActivityForResult(i, 100);
             }
         });
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 100 && data != null) { // this 100 needs to match the 100 we used when we called startActivityForResult
+
+            String string1 = data.getExtras().getString("string1"); // 'string1' needs to match the key we used when we put the string in the Intent
+            String string2 = data.getExtras().getString("string2");
+
+            ((TextView) findViewById(R.id.flashcard_question)).setText(string1);
+            ((TextView) findViewById(R.id.flashcard_answer)).setText(string2);
+
+        }
+    }
+
+
 }

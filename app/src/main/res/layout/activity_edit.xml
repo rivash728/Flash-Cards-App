@@ -16,6 +16,16 @@
         android:layout_marginBottom="27dp"
         android:src="@mipmap/cancelbtn_foreground" />
 
+    <ImageView
+        android:id="@+id/saveBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="21dp"
+        android:layout_marginBottom="23dp"
+        android:src="@drawable/savebtn_background" />
+
     <EditText
         android:id="@+id/editQuestionField"
         android:layout_width="match_parent"
